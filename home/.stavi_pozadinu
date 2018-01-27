@@ -1,0 +1,5 @@
+#!/bin/sh
+while true; do
+feh  --bg-scale "/home/hawerner/pozadine/sorted/$(~/pozadine/.randomer.py).jpg"
+sleep 10
+done
