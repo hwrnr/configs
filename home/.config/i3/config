@@ -44,6 +44,7 @@ new_window pixel 1
 
 #Assign workspaces
 assign [class="XTerm"] 1
+assign [class="Sakura"] 1
 assign [class="Firefox"] 2
 assign [class="Gajim"] 4
 assign [class="Pidgin"] 4
@@ -85,7 +86,8 @@ bindsym $mod+Shift+n exec --no-startup-id $HOME/bin/sp prev
 
 
 # start a terminal
-bindsym $mod+Return exec xterm
+#bindsym $mod+Return exec xterm
+bindsym $mod+Return Sakura
 #bindsym $mod+Return exec konsole
 
 # kill focused window
