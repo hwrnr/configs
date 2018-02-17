@@ -46,6 +46,7 @@ new_window pixel 1
 assign [class="XTerm"] 1
 assign [class="Sakura"] 1
 assign [class="Firefox"] 2
+assign [class="Chromium"] 2
 assign [class="Gajim"] 4
 assign [class="Pidgin"] 4
 assign [class="Franz"] 4
