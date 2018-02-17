@@ -79,15 +79,18 @@ bindsym $mod+o scratchpad show
 
 
 #spotify music control
-bindsym $mod+p exec --no-startup-id $HOME/bin/sp play
-bindsym $mod+n exec --no-startup-id $HOME/bin/sp next
-bindsym $mod+Shift+n exec --no-startup-id $HOME/bin/sp prev
+#bindsym $mod+p exec --no-startup-id $HOME/bin/sp play
+#bindsym $mod+n exec --no-startup-id $HOME/bin/sp next
+#bindsym $mod+Shift+n exec --no-startup-id $HOME/bin/sp prev
 
+bindsym $mod+p exec cmus-remote -u
+bindsym $mod+n exec cmus-remote --next
+bindsym $mod+Shift+n exec cmus-remote --prev
 
 
 # start a terminal
 #bindsym $mod+Return exec xterm
-bindsym $mod+Return Sakura
+bindsym $mod+Return exec sakura
 #bindsym $mod+Return exec konsole
 
 # kill focused window
@@ -99,7 +102,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -parse-known-hosts -show run
 
 # change focus
 bindsym $mod+j focus left
