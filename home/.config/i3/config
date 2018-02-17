@@ -57,8 +57,8 @@ assign [class="Caprine"] 4
 bindsym $win+a exec atom
 bindsym $win+v exec viber
 #bindsym $win+f exec firefox
-bindsym $win+f exec $HOME/Downloads/firefox/firefox
-bindsym $win+c exec chromium
+#bindsym $win+f exec $HOME/Downloads/firefox/firefox
+bindsym $win+f exec chromium
 bindsym $mod+Shift+F6 exec --no-startup-id sudo /home/hawerner/bin/brightness_down
 bindsym $mod+Shift+F7 exec --no-startup-id sudo /home/hawerner/bin/brightness_up
 bindsym $mod+Shift+F12 exec --no-startup-id sudo /home/hawerner/bin/brightness_set_100
