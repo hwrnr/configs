@@ -20,6 +20,7 @@ exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
 #exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
 exec --no-startup-id gajim
 exec --no-startup-id /opt/viber/Viber
+exec --no-startup-id krunner
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -66,7 +67,7 @@ bindsym $mod+F6 exec --no-startup-id amixer sset Master 1%-
 bindsym $mod+F7 exec --no-startup-id amixer sset Master 1%+
 bindsym $mod+Escape exec --no-startup-id amixer sset Master toggle
 #bindsym $win+p exec caprine
-bindsym $mod+Shift+a exec i3lock
+bindsym $mod+Shift+a exec i3lock -c 000000 -I 2 -d
 #bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
 #bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-10%'
 #bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ togglepoweroff
