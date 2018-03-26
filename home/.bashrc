@@ -122,3 +122,10 @@ setxkbmap us
 export ANDROID_NDK_ROOT='/data/Android/Android/android-ndk-r25b'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#PassManager
+_passfold(){
+	COMPREPLY=( $(ls /PassFold/)  ) 
+	return 0
+}
+complete -W "$(ls /PassFold)" passread
