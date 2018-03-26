@@ -14,13 +14,6 @@
 set $mod Mod1
 set $win Mod4
 set $ctrl control
-#exec --no-startup-id /home/hawerner/pozadine/.sorter
-#exec --no-startup-id pkill .stavi_pozadinu
-exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
-#exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
-exec --no-startup-id gajim
-exec --no-startup-id /opt/viber/Viber
-exec --no-startup-id krunner
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -219,7 +212,9 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-exec --no-startup-id blueman-applet
+exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
+#exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
+exec --no-startup-id gajim
+exec --no-startup-id /opt/viber/Viber
+exec --no-startup-id krunner
 exec --no-startup-id megasync
-exec --no-startup-id spotify
-for_window [class="Spotify"] move to scratchpad
