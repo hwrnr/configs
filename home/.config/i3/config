@@ -67,7 +67,7 @@ bindsym $mod+Shift+a exec i3lock -c 000000 -I 2 -d
 bindsym $win+Shift+v exec virtualbox
 bindsym $win+k exec python ~/Python/Keyloger/py-keylogger/keylogger.py
 bindsym $win+Space exec setxkbmap us
-bindsym Print exec import -window root "/home/hawerner/Pictures/Screenshoots/screenshoot $(date +%F) $(date +%H:%M:%S).jpg"
+bindsym Print exec import -window root "/home/hawerner/Pictures/Screenshots/screenshot $(date +%F) $(date +%H:%M:%S).jpg"
 bindsym $mod+o scratchpad show
 
 
