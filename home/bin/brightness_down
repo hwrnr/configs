@@ -1,6 +1,6 @@
 #!/bin/bash
 
 bright=$(cat /sys/class/backlight/intel_backlight/brightness)
-let bright=bright-2
+let bright=bright-10
 echo $bright | sudo tee /sys/class/backlight/intel_backlight/brightness
 exit 0
