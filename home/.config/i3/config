@@ -60,7 +60,7 @@ bindsym $mod+F6 exec --no-startup-id amixer sset Master 1%-
 bindsym $mod+F7 exec --no-startup-id amixer sset Master 1%+
 bindsym $mod+Escape exec --no-startup-id amixer sset Master toggle
 #bindsym $win+p exec caprine
-bindsym $mod+Shift+a exec i3lock -c 000000 -I 2 -d
+bindsym $mod+Shift+a exec i3lock -i ~/pozadine/lockscreen.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
 #bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
 #bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-10%'
 #bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ togglepoweroff
@@ -69,6 +69,7 @@ bindsym $win+k exec python ~/Python/Keyloger/py-keylogger/keylogger.py
 bindsym $win+Space exec setxkbmap us
 bindsym Print exec import -window root "/home/hawerner/Pictures/Screenshots/screenshot $(date +%F) $(date +%H:%M:%S).jpg"
 bindsym $mod+o scratchpad show
+bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP-1 >/dev/null && xrandr --output eDP-1 --off || xrandr --output eDP-1 --mode 1920x1080
 
 
 #spotify music control
