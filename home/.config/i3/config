@@ -44,7 +44,7 @@ assign [class="Gajim"] 4
 assign [class="Pidgin"] 4
 assign [class="Franz"] 4
 assign [class="Viber"] 4
-assign [class="Caprine"] 4
+assign [class="Thunderbird"] 4
 
 
 ## Moje izmisljotine sve
@@ -213,6 +213,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
 #exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
 exec --no-startup-id gajim
