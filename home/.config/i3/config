@@ -216,7 +216,6 @@ bar {
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
 #exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
-exec --no-startup-id gajim
 exec --no-startup-id /opt/viber/Viber
 exec --no-startup-id krunner
 exec --no-startup-id megasync
