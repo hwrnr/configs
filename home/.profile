@@ -25,13 +25,3 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 #export PS1='hawerner: $(date +%H:%M:%S)$ '
 export EDITOR="/usr/bin/vim"
 
-
-#PassManager
-_passfold(){
-    local cmd="${1##*/}"
-    local word=${COMP_WORDS[COMP_CWORD]}
-    local line=${COMP_LINE}
-
-    COMPREPLY=($(compgen -W  "$(ls ${HOME}/PassFold/)" -- "${word}"))
-}
-complete -F _passfold passread

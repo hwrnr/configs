@@ -2,4 +2,4 @@
 
 from random import randint
 
-print randint(0, 48)
+print randint(0, 19)
