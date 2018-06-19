@@ -40,6 +40,7 @@ assign [class="XTerm"] 1
 assign [class="Sakura"] 1
 assign [class="Firefox"] 2
 assign [class="Chromium"] 2
+assign [class="jetbrains-studio"] 3
 assign [class="Gajim"] 4
 assign [class="Pidgin"] 4
 assign [class="Franz"] 4
@@ -77,9 +78,9 @@ bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP-1 >/
 #bindsym $mod+n exec --no-startup-id $HOME/bin/sp next
 #bindsym $mod+Shift+n exec --no-startup-id $HOME/bin/sp prev
 
-bindsym $mod+p exec cmus-remote -u
-bindsym $mod+n exec cmus-remote --next
-bindsym $mod+Shift+n exec cmus-remote --prev
+bindsym $mod+p exec mpc toggle
+bindsym $mod+n exec mpc next
+bindsym $mod+Shift+n exec mpc prev
 
 
 # start a terminal
