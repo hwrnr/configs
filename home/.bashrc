@@ -123,3 +123,14 @@ export ANDROID_NDK_ROOT='/data/Android/Android/android-ndk-r25b'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+
+#PassManager
+_passfold(){
+    local cmd="${1##*/}"
+    local word=${COMP_WORDS[COMP_CWORD]}
+    local line=${COMP_LINE}
+
+    COMPREPLY=($(compgen -W  "$(ls ${HOME}/PassFold/)" -- "${word}"))
+}
+complete -F _passfold passread
+
