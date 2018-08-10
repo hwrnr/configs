@@ -1,0 +1,2 @@
+FILE=$(ls $HOME/PassFold | rofi -dmenu -p "Choose: ")
+rofi -dmenu -password -p "Password: " | passread $FILE
