@@ -25,3 +25,6 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 #export PS1='hawerner: $(date +%H:%M:%S)$ '
 export EDITOR="/usr/bin/vim"
 
+
+
+. /home/hawerner/git/distro/install/bin/torch-activate

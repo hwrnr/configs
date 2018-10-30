@@ -72,6 +72,7 @@ bindsym $win+Space exec setxkbmap us
 bindsym Print exec import -window root "/home/hawerner/Pictures/Screenshots/screenshot $(date +%F) $(date +%H:%M:%S).jpg"
 bindsym $mod+o scratchpad show
 bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP-1 >/dev/null && xrandr --output eDP-1 --off || xrandr --output eDP-1 --mode 1920x1080
+bindsym Menu exec --no-startup-id xdotool click 2
 
 
 #spotify music control
@@ -98,7 +99,8 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -parse-known-hosts -show run
+bindsym $mod+d exec rofi -show run
+bindsym $win+d exec passread-rofi
 
 # change focus
 bindsym $mod+j focus left

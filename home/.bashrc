@@ -134,3 +134,6 @@ _passfold(){
 }
 complete -F _passfold passread
 
+
+
+. /home/hawerner/git/distro/install/bin/torch-activate
