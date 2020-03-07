@@ -115,7 +115,8 @@ fi
 PATH="/usr/local/bin:$HOME/bin:$PATH"
 
 #cat .tux.txt
-figlet TuX
+test -d /mnt/manjaro && figlet Gentoo 
+test -d /mnt/manjaro || figlet Manjaro
 setxkbmap us
 
 #export PS1='$USER: ($?) $(date +%H:%M:%S)$ '
