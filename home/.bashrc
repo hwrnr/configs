@@ -4,7 +4,25 @@
 
 [[ $- != *i* ]] && return
 
-source ~/git/configs/home/.bashrc
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
 
 colors() {
 	local fgc bgc vals seq0
@@ -37,6 +55,11 @@ colors() {
 
 #autojump
 [ -r /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
 
 # Change the window title of X terminals
 case ${TERM} in
@@ -103,7 +126,23 @@ alias more=less
 
 xhost +local:root > /dev/null 2>&1
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 complete -cf sudo
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
@@ -111,9 +150,14 @@ complete -cf sudo
 # http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize
 
+PATH="/usr/local/bin:$HOME/bin:$PATH"
 shopt -s expand_aliases
 
 # export QT_SELECT=4
+test -d /mnt/manjaro && figlet Gentoo
+test -d /mnt/manjaro || figlet Manjaro
+
+export ANDROID_NDK_ROOT='/data/Android/Android/android-ndk-r25b'
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
