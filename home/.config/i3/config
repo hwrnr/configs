@@ -76,7 +76,6 @@ bindsym $mod+o scratchpad show
 bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP-1 >/dev/null && xrandr --output eDP-1 --off || xrandr --output eDP-1 --mode 1920x1080
 bindsym $win+Space exec krunner
 
-
 #spotify music control
 #bindsym $mod+p exec --no-startup-id $HOME/bin/sp play
 #bindsym $mod+n exec --no-startup-id $HOME/bin/sp next
@@ -85,7 +84,6 @@ bindsym $win+Space exec krunner
 bindsym $mod+p exec mpc toggle
 bindsym $mod+n exec mpc next
 bindsym $mod+Shift+n exec mpc prev
-
 
 # start a terminal
 #bindsym $mod+Return exec xterm
@@ -104,7 +102,6 @@ bindsym $mod+Shift+q kill -9
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec export XDG_CURRENT_DESKTOP=KDE && rofi -parse-known-hosts -show run
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
