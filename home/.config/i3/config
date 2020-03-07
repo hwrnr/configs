@@ -11,8 +11,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #exec --no-startup-id xmodmap .Xmodmaprc
-set $mod Mod1
-set $win Mod4
+set $mod Mod4
+set $win Mod1
 set $ctrl control
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -46,14 +46,16 @@ assign [class="Pidgin"] 4
 assign [class="Franz"] 4
 assign [class="Viber"] 4
 assign [class="Thunderbird"] 4
+assign [class="Discord"] 4
 
 
 ## Moje izmisljotine sve
-bindsym $win+a exec atom
 bindsym $win+v exec viber
-#bindsym $win+f exec firefox
+bindsym $win+f exec firefox
+bindsym $win+d exec firefox --new-window deezer.com
+bindsym $win+e exec dolphin
 #bindsym $win+f exec $HOME/Downloads/firefox/firefox
-bindsym $win+f exec chromium
+# bindsym $win+f exec chromium
 bindsym $mod+Shift+F6 exec --no-startup-id sudo /home/hawerner/bin/brightness_down
 bindsym $mod+Shift+F7 exec --no-startup-id sudo /home/hawerner/bin/brightness_up
 bindsym $mod+Shift+F12 exec --no-startup-id sudo /home/hawerner/bin/brightness_set_100
@@ -61,17 +63,18 @@ bindsym $mod+F6 exec --no-startup-id amixer sset Master 1%-
 bindsym $mod+F7 exec --no-startup-id amixer sset Master 1%+
 bindsym $mod+Escape exec --no-startup-id amixer sset Master toggle
 #bindsym $win+p exec caprine
-bindsym $mod+Shift+a exec i3lock -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
-bindsym $mod+Shift+s exec i3lock -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e && sudo /bin/systemctl suspend
+bindsym $mod+Shift+a exec /usr/local/bin/i3lock --24 -i ~/pozadine/lockscreen.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
+# bindsym $mod+Shift+s exec /usr/local/bin/i3lock --24 -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e && /bin/systemctl suspend
+bindsym $mod+Shift+s exec /bin/systemctl suspend && /usr/local/bin/i3lock --24 -i ~/pozadine/lockscreen.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
 #bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
 #bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-10%'
 #bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ togglepoweroff
 bindsym $win+Shift+v exec virtualbox
 bindsym $win+k exec python ~/Python/Keyloger/py-keylogger/keylogger.py
-bindsym $win+Space exec setxkbmap us
 bindsym Print exec import -window root "/home/hawerner/Pictures/Screenshots/screenshot $(date +%F) $(date +%H:%M:%S).jpg"
 bindsym $mod+o scratchpad show
 bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP-1 >/dev/null && xrandr --output eDP-1 --off || xrandr --output eDP-1 --mode 1920x1080
+bindsym $win+Space exec krunner
 
 
 #spotify music control
@@ -90,7 +93,9 @@ bindsym $mod+Return exec sakura
 #bindsym $mod+Return exec konsole
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+bindsym $mod+Shift+q kill -9
+# bindsym $mod+Shift+q exec xkill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -98,7 +103,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -parse-known-hosts -show run
+bindsym $mod+d exec export XDG_CURRENT_DESKTOP=KDE && rofi -parse-known-hosts -show run
 
 # change focus
 bindsym $mod+j focus left
@@ -212,13 +217,40 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
+# bar {
+        # status_command i3status
+# }
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec --no-startup-id /home/hawerner/pozadine/.stavi_pozadinu
 #exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
 exec --no-startup-id /opt/viber/Viber
-exec --no-startup-id krunner
 exec --no-startup-id megasync
 exec --no-startup-id thunderbird
+exec --no-startup-id gajim
+# exec --no-startup-id feh /home/hawerner/pozadine/sorted/33.jpg --bg-max
+exec --no-startup-id feh --bg-max ~/pozadine/lockscreen.png
+# exec --no-startup-id discord
+exec --no-startup-id killall plasmashell && plasmashell
+
+
+
+for_window [class="yakuake"] floating enable
+# exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+
+## Plasma Integration
+# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
+exec --no-startup-id wmctrl -c Plasma
+# exec --no-startup-id compton -b
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+
+## Avoid tiling popups, dropdown windows from plasma
+# for the first time, manually resize them, i3 will remember the setting for floating windows
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [class="dolphin"] floating enable, border none
