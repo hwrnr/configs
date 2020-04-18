@@ -11,7 +11,7 @@ function __prompt {
     fi
 
     # Prompt prefix, use `$` for successful exit code, `!` for error.
-    PREFIX_0='$'
+    PREFIX_0=''
     PREFIX_1='!'
 
     BOLD=""
@@ -113,9 +113,15 @@ function __prompt {
         if [[ $COLORCODE != "237" && $COLORCODE != "0" ]]; then
             TXT_COLOR="${BLACK}"
         fi
+
+        if [ $EXIT_CODE -eq 0 ]; then
+          BG_COLOR_EXIT_CODE=""
+        else
+          BG_COLOR_EXIT_CODE="${RED_BG}"
+        fi
         # Explain magic of \001 and \002 http://mywiki.wooledge.org/BashFAQ/053
-        printf '\001%s\002\001%s\002 \001%s\002 %s \001%s\002\001%s\002' \
-            "${BG_COLOR}" "${BLACK2}" "${TXT_COLOR}" "${BRANCH}" "${RESET}" "${FG_COLOR}"
+        printf '\001%s\002\001%s\002 \001%s\002 %s \001%s\002\001%s\002\001%s\002' \
+            "${BG_COLOR}" "${BLACK2}" "${TXT_COLOR}" "${BRANCH}" "${RESET}" "${BG_COLOR_EXIT_CODE}" "${FG_COLOR}"
     }
 
     function prompt_git {
@@ -123,9 +129,15 @@ function __prompt {
         if [ $(git rev-parse --is-inside-work-tree &>/dev/null; printf $?) == 0 ]; then
             git_branch
         else
+          if [ $EXIT_CODE -eq 0 ]; then
+            BG_COLOR_EXIT_CODE=""
+          else
+            BG_COLOR_EXIT_CODE="${RED_BG}"
+          fi
+
             # Print a blank segment
-            printf '\001%s\002\001%s\002 \001%s\002\001%s\002' \
-                "${BLACK1_BG}" "${BLACK2}" "${RESET}" "${BLACK1}"
+            printf '\001%s\002\001%s\002 \001%s\002\001%s\002\001%s\002' \
+                "${BLACK1_BG}" "${BLACK2}" "${RESET}" "${BG_COLOR_EXIT_CODE}" "${BLACK1}"
         fi
     }
 
@@ -136,8 +148,8 @@ function __prompt {
             printf '\001%s\002%s\001%s\002 ' \
                 "${WHITE}" "${PREFIX_0}" "${RESET}"
         else
-            printf '\001%s\002[%s]%s\001%s\002 ' \
-                "${RED}" "${EXIT_CODE}" "${PREFIX_1}" "${RESET}"
+            printf '\001%s\002\001%s\002[%s]\001%s\002\001%s\002\001%s\002%s\001%s\002 ' \
+                "${RED_BG}" "${BLACK}" "${EXIT_CODE}" "${RESET}" "${RED}" "${RESET}" "${PREFIX_0}" "${RESET}"
         fi
     }
 
