@@ -131,6 +131,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 if [ -f ~/.bash_prompt ]; then
+  export PS1=""
     . ~/.bash_prompt
 fi
 

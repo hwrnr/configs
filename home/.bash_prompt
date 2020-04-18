@@ -162,7 +162,17 @@ function __prompt {
         PS1+="\$(status_prefix)"                                                       # $
     }
 
-    PROMPT_COMMAND=init_prompt
+    function init_prompt_status_code {
+        EXIT_CODE="$?"
+        if [[ "$PS1" =~ ^\\001.*  ]]; then
+          PS1="${PS1}"
+        else 
+          PS1="\001${GRAY_BG}\002\001${BLACK}\002${PS1}"
+        fi
+    }
+
+    PROMPT_COMMAND=init_prompt_status_code
+    init_prompt
 }
 
 __prompt
