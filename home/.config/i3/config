@@ -73,8 +73,9 @@ bindsym $win+Shift+v exec virtualbox
 bindsym $win+k exec python ~/Python/Keyloger/py-keylogger/keylogger.py
 bindsym Print exec import -window root "/home/hawerner/Pictures/Screenshots/screenshot $(date +%F) $(date +%H:%M:%S).jpg"
 bindsym $mod+o scratchpad show
-bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP-1 >/dev/null && xrandr --output eDP-1 --off || xrandr --output eDP-1 --mode 1920x1080
+bindsym $mod+F9 exec --no-startup-id xrandr --listactivemonitors | grep eDP1 >/dev/null && xrandr --output eDP1 --off || xrandr --output eDP1 --mode 1920x1080
 bindsym $win+Space exec krunner
+
 
 #spotify music control
 #bindsym $mod+p exec --no-startup-id $HOME/bin/sp play
@@ -84,6 +85,7 @@ bindsym $win+Space exec krunner
 bindsym $mod+p exec mpc toggle
 bindsym $mod+n exec mpc next
 bindsym $mod+Shift+n exec mpc prev
+
 
 # start a terminal
 #bindsym $mod+Return exec xterm
@@ -102,6 +104,7 @@ bindsym $mod+Shift+q kill -9
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec export XDG_CURRENT_DESKTOP=KDE && rofi -parse-known-hosts -show run
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -222,7 +225,7 @@ bindsym $mod+r mode "resize"
 #exec --no-startup-id python /home/hawerner/.linconnect/LinConnectServer/main/linconnect_server.py
 exec --no-startup-id /opt/viber/Viber
 exec --no-startup-id megasync
-exec --no-startup-id thunderbird
+# exec --no-startup-id thunderbird
 exec --no-startup-id gajim
 # exec --no-startup-id feh /home/hawerner/pozadine/sorted/33.jpg --bg-max
 exec --no-startup-id feh --bg-max ~/pozadine/lockscreen.png
@@ -251,3 +254,7 @@ for_window [class="Kmix"] floating enable, border none
 for_window [class="Klipper"] floating enable, border none
 for_window [class="Plasmoidviewer"] floating enable, border none
 for_window [class="dolphin"] floating enable, border none
+
+no_focus [class="plasmashell"]
+no_focus [window_role="pop-up"]
+no_focus [window_type="notification"]
