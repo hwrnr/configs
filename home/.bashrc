@@ -148,6 +148,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f /etc/profile.d/fzf.sh ]; then
+  . /etc/profile.d/fzf.sh
+fi
+
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
