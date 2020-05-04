@@ -1,0 +1,2 @@
+# Prelink all binaries in system
+prelink -amR
