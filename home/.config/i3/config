@@ -38,6 +38,7 @@ new_window pixel 1
 #Assign workspaces
 assign [class="XTerm"] 1
 assign [class="Sakura"] 1
+assign [class="Alacritty"] 1
 assign [class="Firefox"] 2
 assign [class="Chromium"] 2
 assign [class="jetbrains-studio"] 3
@@ -89,7 +90,8 @@ bindsym $mod+Shift+n exec mpc prev
 
 # start a terminal
 #bindsym $mod+Return exec xterm
-bindsym $mod+Return exec sakura
+# bindsym $mod+Return exec sakura
+bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec konsole
 
 # kill focused window
