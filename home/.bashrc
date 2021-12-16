@@ -152,6 +152,10 @@ if [ -f /etc/profile.d/fzf.sh ]; then
   . /etc/profile.d/fzf.sh
 fi
 
+if [ -f /usr/share/fzf/key-bindings.bash ]; then
+  . /usr/share/fzf/key-bindings.bash
+fi
+
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
@@ -160,6 +164,7 @@ fi
 shopt -s checkwinsize
 
 PATH="/usr/local/bin:$HOME/bin:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 shopt -s expand_aliases
 
 # export QT_SELECT=4
@@ -223,8 +228,10 @@ sms(){
     rm ${SMS_FILE}
     if [ "${SMS_TEXT}" == "" ]; then
       echo "Message empty, canceling"
-      exit 0;
+      return;
     fi;
     kdeconnect-cli --device ${KDECONNECT_SONY} --send-sms "${SMS_TEXT}" --destination "${phone_number}" && \
     echo sent sms message to ${phone_number} 
 }
+
+source $HOME/.keychain/$HOSTNAME-sh

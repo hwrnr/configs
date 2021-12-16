@@ -52,10 +52,9 @@ assign [class="discord"] 4
 
 ## Moje izmisljotine sve
 bindsym $win+v exec viber
-bindsym $win+f exec firefox
-bindsym $win+d exec firefox --new-window deezer.com
+bindsym $win+f exec MOZ_X11_EGL=1 firefox
+bindsym $win+d exec MOZ_X11_EGL=1 firefox --new-window open.spotify.com
 bindsym $win+e exec dolphin
-#bindsym $win+f exec $HOME/Downloads/firefox/firefox
 # bindsym $win+f exec chromium
 bindsym $mod+Shift+F6 exec --no-startup-id sudo /home/hawerner/bin/brightness_down
 bindsym $mod+Shift+F7 exec --no-startup-id sudo /home/hawerner/bin/brightness_up
@@ -64,7 +63,7 @@ bindsym $mod+F6 exec --no-startup-id amixer sset Master 1%-
 bindsym $mod+F7 exec --no-startup-id amixer sset Master 1%+
 bindsym $mod+Escape exec --no-startup-id amixer sset Master toggle
 #bindsym $win+p exec caprine
-bindsym $mod+Shift+a exec /usr/local/bin/i3lock --24 -i ~/pozadine/lockscreen.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
+bindsym $mod+Shift+a exec /usr/local/bin/i3lock --24 -i ~/Pictures/pozadina.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
 # bindsym $mod+Shift+s exec /usr/local/bin/i3lock --24 -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e && /bin/systemctl suspend
 bindsym $mod+Shift+s exec /bin/systemctl suspend && /usr/local/bin/i3lock --24 -i ~/pozadine/lockscreen.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
 #bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
@@ -82,11 +81,6 @@ bindsym $win+Space exec krunner
 #bindsym $mod+p exec --no-startup-id $HOME/bin/sp play
 #bindsym $mod+n exec --no-startup-id $HOME/bin/sp next
 #bindsym $mod+Shift+n exec --no-startup-id $HOME/bin/sp prev
-
-bindsym $mod+p exec mpc toggle
-bindsym $mod+n exec mpc next
-bindsym $mod+Shift+n exec mpc prev
-
 
 # start a terminal
 #bindsym $mod+Return exec xterm
@@ -230,10 +224,14 @@ exec --no-startup-id megasync
 # exec --no-startup-id thunderbird
 exec --no-startup-id gajim
 # exec --no-startup-id feh /home/hawerner/pozadine/sorted/33.jpg --bg-max
-exec --no-startup-id feh --bg-max ~/pozadine/lockscreen.png
+# exec --no-startup-id feh --bg-max ~/pozadine/lockscreen.png
+exec --no-startup-id feh --bg-max ~/Pictures/pozadina.jpg
 # exec --no-startup-id discord
 exec --no-startup-id killall plasmashell && plasmashell
 
+
+
+bindsym $mod+p move window to output right
 
 
 for_window [class="yakuake"] floating enable
@@ -245,6 +243,7 @@ exec --no-startup-id wmctrl -c Plasma
 # exec --no-startup-id compton -b
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
+for_window [class="^.*"] border pixel 0
 ## Avoid tiling popups, dropdown windows from plasma
 # for the first time, manually resize them, i3 will remember the setting for floating windows
 for_window [class="plasmashell"] floating enable
@@ -256,7 +255,20 @@ for_window [class="Kmix"] floating enable, border none
 for_window [class="Klipper"] floating enable, border none
 for_window [class="Plasmoidviewer"] floating enable, border none
 for_window [class="dolphin"] floating enable, border none
+for_window [window_type=floating] border full
+
 
 no_focus [class="plasmashell"]
 no_focus [window_role="pop-up"]
 no_focus [window_type="notification"]
+
+
+gaps outer 0
+gaps inner 5
+smart_gaps on
+
+workspace 1 output primary
+workspace 2 output primary
+workspace 3 output primary
+workspace 4 output primary
+workspace 5 output secondary
