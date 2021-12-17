@@ -1,5 +1,0 @@
-#!/bin/sh
-while true; do
-feh  --bg-max "/home/hawerner/pozadine/sorted/$(~/pozadine/.randomer.py).jpg"
-sleep 10
-done
