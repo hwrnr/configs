@@ -14,3 +14,8 @@ alias ropen='rifle'
 alias adb='/data/Android/Android/opt/android-sdk/platform-tools/adb'
 alias vncserverstart='x11vnc -safer -forever -display :0'
 alias weather="curl 'https://wttr.in/Novi Sad'"
+
+
+PATH_TO_FX="$HOME/faks/oop/javafx-sdk-17.0.1/lib/"
+alias javac11="/opt/openjdk-bin-11/bin/javac --module-path $PATH_TO_FX --add-modules javafx.controls "
+alias java11="/opt/openjdk-bin-11/bin/java --module-path $PATH_TO_FX --add-modules javafx.controls "
