@@ -14,6 +14,7 @@ alias ropen='rifle'
 alias adb='/data/Android/Android/opt/android-sdk/platform-tools/adb'
 alias vncserverstart='x11vnc -safer -forever -display :0'
 alias weather="curl 'https://wttr.in/Novi Sad'"
+alias record-screen="ffmpeg -video_size 1920x1080 -framerate 5 -f x11grab -i :0.0+0.0 -c:v libx264rgb -crf 0 -preset ultrafast -color_range 2 "
 
 
 PATH_TO_FX="$HOME/faks/oop/javafx-sdk-17.0.1/lib/"
