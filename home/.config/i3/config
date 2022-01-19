@@ -65,7 +65,7 @@ bindsym $mod+Escape exec --no-startup-id amixer sset Master toggle
 #bindsym $win+p exec caprine
 bindsym $mod+Shift+a exec /usr/local/bin/i3lock --24 -i ~/Pictures/pozadina.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
 # bindsym $mod+Shift+s exec /usr/local/bin/i3lock --24 -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e && /bin/systemctl suspend
-bindsym $mod+Shift+s exec /bin/systemctl suspend && /usr/local/bin/i3lock --24 -i ~/pozadine/lockscreen.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
+bindsym $mod+Shift+s exec /bin/systemctl suspend && /usr/local/bin/i3lock --24 -i ~/Pictures/pozadina.png -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e 
 #bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
 #bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-10%'
 #bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ togglepoweroff
